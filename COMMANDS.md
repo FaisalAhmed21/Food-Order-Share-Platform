@@ -76,6 +76,10 @@ npm start
 ```
 ⚡ Step 6: Run Both Frontend and Backend Together
 
+Install concurrently to run both servers together:
+```bash
+npm install concurrently
+```
 Navigate to the main project folder:
 ```bash
 cd project-folder
@@ -84,10 +88,6 @@ Initialize Node.js:
 ```bash
 npm init -y
 ```
-Install concurrently to run both servers together:
-```bash
-npm install concurrently
-
 Add the following script to your package.json in the main project folder:
 ```bash
 "scripts": {
