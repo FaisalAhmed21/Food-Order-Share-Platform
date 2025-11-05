@@ -53,8 +53,12 @@ Create a React app inside the frontend directory:
 ```bash
 npx create-react-app .
 ```
-🔴 You Can Either Run Frontend and Backend Separately  
-🔴 Or Run Both Frontend and Backend Together
+
+```diff
+@@ 🔴 You Can Either Run Frontend and Backend Separately @@
+@@ 🔴 Or Run Both Frontend and Backend Together @@
+- So either do Step 5 or Step 6
+```
 
 🔄 Step 5: Run Frontend and Backend Separately
 
