@@ -57,6 +57,7 @@ npx create-react-app .
 ```diff
 @@ 🔴 You Can Either Run Frontend and Backend Separately @@
 @@ 🔴 Or Run Both Frontend and Backend Together @@
+
 - So either do Step 5 or Step 6
 ```
 
