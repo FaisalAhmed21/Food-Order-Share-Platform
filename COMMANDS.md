@@ -102,3 +102,4 @@ Now, run both servers with:
 ```bash
 npm run dev
 ```
+SO now, MERN project structure is ready.
