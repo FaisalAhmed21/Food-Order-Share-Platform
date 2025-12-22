@@ -12,7 +12,7 @@ const userSchema = new mongoose.Schema({
   },
   password: {
     type: String,
-    required: true,
+    required: false,
     minlength: 6,
     select: false
   },
@@ -20,9 +20,52 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: false
   },
+  googleId: {
+    type: String,
+    unique: true,
+    sparse: true
+  },
+  authProvider: {
+    type: String,
+    enum: ['local', 'google'],
+    default: 'local'
+  },
+  profilePicture: {
+    type: String,
+    required: false
+  },
+  phone: {
+    type: String,
+    required: false
+  },
   createdAt: {
     type: Date,
     default: Date.now
+  },
+  role: {
+    type: String,
+    enum: ['Customer', 'Restaurant', 'NGO'],
+    default: 'Customer'
+  },
+  organizationName: {
+    type: String,
+    required: false
+  },
+  documents: {
+    type: String,
+    required: false
+  },
+  verificationMark: {
+    type: Boolean,
+    default: false
+  },
+  resetToken: {
+    type: String,
+    required: false
+  },
+  resetTokenExpiry: {
+    type: Date,
+    required: false
   }
 });
 
