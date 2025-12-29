@@ -1,7 +1,7 @@
 .home-container {
   width: 100%;
   min-height: 100vh;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #FFA500 0%, #FFA500 100%);
   color: #333;
 }
 
@@ -16,27 +16,30 @@
   margin: 0 auto;
   padding: 0 2rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
+  gap: 2rem;
 }
 
 .logo {
   font-size: 1.8rem;
   font-weight: bold;
-  color: #667eea;
+  color: #FFA500;
   margin: 0;
+  margin-right: auto;
 }
 
 .nav-links {
   display: flex;
   gap: 1rem;
+  margin-left: auto;
 }
 
 .nav-btn {
   padding: 0.6rem 1.5rem;
   background-color: transparent;
-  color: #667eea;
-  border: 2px solid #667eea;
+  color: #FFA500;
+  border: 2px solid #FFA500;
   border-radius: 5px;
   cursor: pointer;
   font-weight: 600;
@@ -44,19 +47,19 @@
 }
 
 .nav-btn:hover {
-  background-color: #667eea;
+  background-color: #FFA500;
   color: white;
 }
 
 .nav-btn-primary {
-  background-color: #667eea;
+  background-color: #FFA500;
   color: white;
-  border-color: #667eea;
+  border-color: #FFA500;
 }
 
 .nav-btn-primary:hover {
-  background-color: #764ba2;
-  border-color: #764ba2;
+  background-color: #FFA500;
+  border-color: #FFA500;
 }
 
 .hero {
@@ -81,10 +84,16 @@
   margin-bottom: 2rem;
 }
 
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
 .cta-button {
   padding: 1rem 2.5rem;
   background-color: white;
-  color: #667eea;
+  color: #FFA500;
   border: none;
   border-radius: 5px;
   font-size: 1rem;
@@ -96,6 +105,17 @@
 .cta-button:hover {
   transform: translateY(-2px);
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+.cta-button.secondary {
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+}
+
+.cta-button.secondary:hover {
+  background-color: white;
+  color: #FFA500;
 }
 
 .hero-image {
@@ -159,7 +179,7 @@
 .feature-card h4 {
   font-size: 1.2rem;
   margin-bottom: 0.5rem;
-  color: #667eea;
+  color: #FFA500;
 }
 
 .feature-card p {
@@ -183,10 +203,73 @@
   margin-bottom: 2rem;
 }
 
+/* Nearby Map Promo Section */
+.nearby-map-promo {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+}
+
+.promo-content {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.9) 100%);
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.promo-content:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.promo-icon {
+  font-size: 4rem;
+  flex-shrink: 0;
+}
+
+.promo-text {
+  flex: 1;
+}
+
+.promo-text h3 {
+  margin: 0 0 0.5rem 0;
+  color: #333;
+  font-size: 1.8rem;
+}
+
+.promo-text p {
+  margin: 0;
+  color: #666;
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+.promo-btn {
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.promo-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+}
+
 .cta-button-large {
   padding: 1.2rem 3rem;
   background-color: white;
-  color: #667eea;
+  color: #FFA500;
   border: none;
   border-radius: 5px;
   font-size: 1.1rem;
@@ -228,5 +311,27 @@
 
   .features-grid {
     grid-template-columns: 1fr;
+  }
+
+  .promo-content {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.5rem;
+  }
+
+  .promo-icon {
+    font-size: 3rem;
+  }
+
+  .promo-text h3 {
+    font-size: 1.5rem;
+  }
+
+  .promo-text p {
+    font-size: 1rem;
+  }
+
+  .promo-btn {
+    width: 100%;
   }
 }

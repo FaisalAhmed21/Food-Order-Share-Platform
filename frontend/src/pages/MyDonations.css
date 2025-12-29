@@ -1,0 +1,13 @@
+.my-donations-container { min-height:100vh; padding:2rem; background:#f6f8ff }
+.header-row { display:flex; gap:1rem; align-items:center; margin-bottom:1rem }
+.header-row h1 { margin:0 }
+.back-btn { background:transparent; border:none; color:#667eea; cursor:pointer; font-weight:700 }
+.no-donations { background:white; padding:2rem; border-radius:8px }
+.donate-now { margin-top:1rem; padding:0.6rem 1rem; background:#00b894; color:white; border:none; border-radius:8px; cursor:pointer }
+.donations-list { display:flex; flex-direction:column; gap:1rem }
+.donation-card { display:flex; justify-content:space-between; background:white; padding:1rem; border-radius:8px; box-shadow:0 6px 18px rgba(102,121,255,0.06) }
+.donation-left h3 { margin:0 }
+.donation-left .meta { color:#666 }
+.donation-right img { width:120px; height:90px; object-fit:cover; border-radius:8px }
+.card-actions { display:flex; gap:0.5rem; margin-top:0.5rem }
+.card-actions button { padding:0.5rem 0.8rem; border-radius:6px; border:1px solid #ddd; background:white; cursor:pointer }

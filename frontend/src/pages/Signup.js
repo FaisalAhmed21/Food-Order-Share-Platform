@@ -25,7 +25,7 @@ const Signup = () => {
     if (token && user) {
       try {
         localStorage.setItem('token', token);
-        localStorage.setItem('user', user);
+        localStorage.setItem('userData', user);
         setSuccess('Account created successfully! Redirecting...');
         setTimeout(() => {
           window.history.replaceState({}, document.title, window.location.pathname);
@@ -98,7 +98,7 @@ const Signup = () => {
       if (data.success) {
         setSuccess('Account created successfully! Redirecting...');
         localStorage.setItem('token', data.token);
-        localStorage.setItem('user', JSON.stringify(data.user));
+        localStorage.setItem('userData', JSON.stringify(data.user));
         setTimeout(() => {
           navigate('/profile');
         }, 1500);
@@ -131,7 +131,7 @@ const Signup = () => {
       if (data.success) {
         setSuccess('Account created successfully! Redirecting...');
         localStorage.setItem('token', data.token);
-        localStorage.setItem('user', JSON.stringify(data.user));
+        localStorage.setItem('userData', JSON.stringify(data.user));
         setTimeout(() => {
           navigate('/profile');
         }, 1500);
@@ -220,6 +220,7 @@ const Signup = () => {
               <option value="Customer">Customer</option>
               <option value="Restaurant">Restaurant</option>
               <option value="NGO">NGO</option>
+              <option value="Volunteer">Volunteer</option>
             </select>
           </div>
 

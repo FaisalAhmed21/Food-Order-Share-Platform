@@ -1,6 +1,6 @@
 .signup-container {
   min-height: 100vh;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #FFA500 0%, #FFA500 100%);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -24,7 +24,7 @@
 
 .signup-header h1 {
   font-size: 2rem;
-  color: #667eea;
+  color: #FFA500;
   margin: 0 0 0.5rem 0;
 }
 
@@ -69,7 +69,7 @@
 
 .form-group input:focus {
   outline: none;
-  border-color: #667eea;
+  border-color: #FFA500;
   box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
@@ -90,7 +90,7 @@
 
 .form-group select:focus {
   outline: none;
-  border-color: #667eea;
+  border-color: #FFA500;
   box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
@@ -127,7 +127,7 @@
 
 .submit-btn {
   padding: 0.9rem;
-  background-color: #667eea;
+  background-color: #FFA500;
   color: white;
   border: none;
   border-radius: 5px;
@@ -139,7 +139,7 @@
 }
 
 .submit-btn:hover:not(:disabled) {
-  background-color: #764ba2;
+  background-color: #FFA500;
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
 }
@@ -162,14 +162,14 @@
 }
 
 .signup-footer a {
-  color: #667eea;
+  color: #FFA500;
   text-decoration: none;
   font-weight: 600;
   transition: color 0.3s ease;
 }
 
 .signup-footer a:hover {
-  color: #764ba2;
+  color: #FFA500;
 }
 
 .signup-wrapper {
@@ -197,7 +197,7 @@
 }
 
 .back-home-btn:hover {
-  background: #667eea;
+  background: #FFA500;
   color: white;
 }
 
@@ -256,6 +256,88 @@
   justify-content: center;
 }
 
+.volunteer-type-group {
+  margin-top: 0.5rem;
+}
+
+.volunteer-type-group label {
+  margin-bottom: 0.75rem;
+}
+
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.radio-option {
+  display: flex;
+  align-items: flex-start;
+  padding: 1rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: #f9f9f9;
+}
+
+.radio-option:hover {
+  border-color: #FFA500;
+  background: #fff8f0;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 165, 0, 0.15);
+}
+
+.radio-option input[type="radio"] {
+  margin-right: 0.75rem;
+  margin-top: 0.25rem;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: #FFA500;
+}
+
+.radio-option input[type="radio"]:checked ~ .radio-content {
+  color: #FFA500;
+}
+
+.radio-option:has(input[type="radio"]:checked) {
+  border-color: #FFA500;
+  background: #fff8f0;
+  box-shadow: 0 4px 12px rgba(255, 165, 0, 0.2);
+}
+
+.radio-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  flex: 1;
+}
+
+.radio-icon {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.radio-content strong {
+  display: block;
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 0.25rem;
+}
+
+.radio-content p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #666;
+  line-height: 1.4;
+}
+
+.required {
+  color: #ff4444;
+  margin-left: 0.25rem;
+}
+
 @media (max-width: 480px) {
   .divider {
     margin: 1rem 0;
@@ -263,5 +345,21 @@
 
   .oauth-container {
     margin: 1rem 0;
+  }
+
+  .radio-option {
+    padding: 0.75rem;
+  }
+
+  .radio-icon {
+    font-size: 1.5rem;
+  }
+
+  .radio-content strong {
+    font-size: 0.9rem;
+  }
+
+  .radio-content p {
+    font-size: 0.8rem;
   }
 }

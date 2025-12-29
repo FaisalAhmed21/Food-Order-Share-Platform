@@ -54,4 +54,22 @@ const sendResetEmail = async (email, resetToken, userName) => {
   }
 };
 
-module.exports = { sendResetEmail };
+// Generic notification sender
+const sendNotificationEmail = async (to, subject, html) => {
+  const mailOptions = {
+    from: process.env.EMAIL_USER || 'your-email@gmail.com',
+    to,
+    subject,
+    html
+  };
+
+  try {
+    await transporter.sendMail(mailOptions);
+    return { success: true };
+  } catch (error) {
+    console.error('Notification email error:', error);
+    return { success: false, error: error.message };
+  }
+};
+
+module.exports = { sendResetEmail, sendNotificationEmail };

@@ -44,8 +44,8 @@ const userSchema = new mongoose.Schema({
   },
   role: {
     type: String,
-    enum: ['Customer', 'Restaurant', 'NGO'],
-    default: 'Customer'
+    enum: ['customer', 'owner', 'admin', 'Customer', 'Restaurant', 'NGO', 'Volunteer'],
+    default: 'customer'
   },
   organizationName: {
     type: String,
@@ -66,7 +66,13 @@ const userSchema = new mongoose.Schema({
   resetTokenExpiry: {
     type: Date,
     required: false
-  }
+  },
+  // Campaign Badges
+  campaignBadges: [{
+    campaign: { type: mongoose.Schema.Types.ObjectId, ref: 'Campaign' },
+    badge: { type: String, enum: ['Gold', 'Silver', 'Bronze'] },
+    earnedAt: { type: Date, default: Date.now }
+  }]
 });
 
 // Hash password before saving

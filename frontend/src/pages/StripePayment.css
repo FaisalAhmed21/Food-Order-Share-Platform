@@ -1,0 +1,255 @@
+.stripe-container {
+  min-height: 100vh;
+  background: #f6f9fc;
+}
+
+.stripe-header {
+  background: white;
+  padding: 1.5rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+}
+
+.back-btn {
+  padding: 0.6rem 1.2rem;
+  background: transparent;
+  border: 2px solid #635BFF;
+  color: #635BFF;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+  background: #635BFF;
+  color: white;
+}
+
+.stripe-logo {
+  display: flex;
+  align-items: center;
+}
+
+.stripe-content {
+  padding: 3rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.payment-container {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 2rem;
+}
+
+.payment-form-card,
+.order-summary-card {
+  background: white;
+  border-radius: 16px;
+  padding: 2.5rem;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+.payment-form-card h2,
+.order-summary-card h3 {
+  margin: 0 0 2rem 0;
+  color: #2d3436;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.error-banner {
+  background: #fee;
+  color: #c33;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  border-left: 4px solid #c33;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #2d3436;
+  font-size: 0.9rem;
+}
+
+.card-input-wrapper {
+  position: relative;
+}
+
+.card-input-wrapper input {
+  padding-right: 3rem;
+}
+
+.card-icons {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.5rem;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 0.9rem 1.2rem;
+  border: 2px solid #e8e8e8;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #635BFF;
+  box-shadow: 0 0 0 3px rgba(99, 91, 255, 0.1);
+}
+
+.form-group input.error {
+  border-color: #e74c3c;
+}
+
+.error-text {
+  display: block;
+  color: #e74c3c;
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.pay-button {
+  width: 100%;
+  padding: 1.1rem;
+  background: #635BFF;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+}
+
+.pay-button:hover:not(:disabled) {
+  background: #5449d4;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(99, 91, 255, 0.3);
+}
+
+.pay-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.security-info {
+  text-align: center;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid #e8e8e8;
+}
+
+.security-info span {
+  display: block;
+  color: #00d924;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.security-info p {
+  color: #636e72;
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+/* Order Summary */
+.order-summary-card h3 {
+  font-size: 1.3rem;
+}
+
+.summary-items {
+  margin-bottom: 1.5rem;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+  color: #636e72;
+  font-size: 0.95rem;
+}
+
+.summary-total {
+  border-top: 2px solid #e8e8e8;
+  padding-top: 1rem;
+  margin-top: 1rem;
+}
+
+.total-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #2d3436;
+}
+
+.total-row.usd {
+  color: #635BFF;
+  font-size: 1.3rem;
+  border-top: 1px dashed #e8e8e8;
+  padding-top: 1rem;
+  margin-top: 0.5rem;
+}
+
+.conversion-note {
+  text-align: center;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e8e8e8;
+}
+
+.conversion-note small {
+  color: #636e72;
+  font-size: 0.85rem;
+}
+
+@media (max-width: 968px) {
+  .payment-container {
+    grid-template-columns: 1fr;
+  }
+
+  .order-summary-card {
+    order: -1;
+  }
+}
+
+@media (max-width: 768px) {
+  .stripe-content {
+    padding: 2rem 1rem;
+  }
+
+  .payment-form-card,
+  .order-summary-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}

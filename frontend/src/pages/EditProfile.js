@@ -20,7 +20,7 @@ const EditProfile = () => {
 
   useEffect(() => {
     // Load user data from localStorage
-    const storedUser = localStorage.getItem('user');
+    const storedUser = localStorage.getItem('userData');
     if (storedUser) {
       try {
         const parsedUser = JSON.parse(storedUser);
@@ -111,7 +111,7 @@ const EditProfile = () => {
       const data = await response.json();
       if (data.success) {
         setSuccess('Profile updated successfully!');
-        localStorage.setItem('user', JSON.stringify(data.user));
+        localStorage.setItem('userData', JSON.stringify(data.user));
         setTimeout(() => {
           navigate('/profile');
         }, 1500);

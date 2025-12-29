@@ -18,7 +18,7 @@ const generateToken = (userId) => {
 // Register user
 router.post('/register', async (req, res) => {
   try {
-    const { email, password, name, role } = req.body;
+    const { email, password, name, role, volunteerType, phone } = req.body;
 
     // Validation
     if (!email || !password) {
@@ -42,8 +42,10 @@ router.post('/register', async (req, res) => {
       email,
       password,
       name: name || '',
+      phone: phone || '',
       authProvider: 'local',
-      role: role || 'Customer'
+      role: role || 'Customer',
+      volunteerType: (role === 'Volunteer' && volunteerType) ? volunteerType : undefined
     });
 
     await user.save();
@@ -56,8 +58,10 @@ router.post('/register', async (req, res) => {
       _id: user._id,
       email: user.email,
       name: user.name,
+      phone: user.phone,
       authProvider: user.authProvider,
       role: user.role,
+      volunteerType: user.volunteerType,
       createdAt: user.createdAt
     };
 
@@ -86,6 +90,27 @@ router.post('/login', async (req, res) => {
       return res.status(400).json({ 
         success: false, 
         message: 'Email and password are required' 
+      });
+    }
+
+    // Check for hardcoded admin credentials
+    if (email === 'admin@gmail.com' && password === 'admin123') {
+      const adminToken = generateToken('admin_hardcoded_id');
+      
+      return res.status(200).json({
+        success: true,
+        message: 'Admin login successful',
+        token: adminToken,
+        user: {
+          _id: 'admin_hardcoded_id',
+          email: 'admin@gmail.com',
+          name: 'System Administrator',
+          role: 'Admin',
+          authProvider: 'local',
+          profilePicture: null,
+          isAdmin: true,
+          createdAt: new Date()
+        }
       });
     }
 

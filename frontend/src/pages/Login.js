@@ -42,9 +42,18 @@ const Login = () => {
 
       if (data.success) {
         localStorage.setItem("token", data.token);
-        localStorage.setItem("user", JSON.stringify(data.user));
+        localStorage.setItem("userData", JSON.stringify(data.user));
         setSuccess("Login successful!");
-        setTimeout(() => navigate("/profile"), 1000);
+        
+        // Redirect based on role
+        const userRole = data.user.role;
+        if (userRole === 'Admin') {
+          setTimeout(() => navigate("/admin/dashboard"), 1000);
+        } else if (userRole === 'Restaurant' || userRole === 'restaurant') {
+          setTimeout(() => navigate("/restaurant-dashboard"), 1000);
+        } else {
+          setTimeout(() => navigate("/profile"), 1000);
+        }
       } else {
         setError(data.message || "Login failed");
       }
@@ -72,9 +81,16 @@ const Login = () => {
 
       if (data.success) {
         localStorage.setItem("token", data.token);
-        localStorage.setItem("user", JSON.stringify(data.user));
+        localStorage.setItem("userData", JSON.stringify(data.user));
         setSuccess("Login successful!");
-        setTimeout(() => navigate("/profile"), 1000);
+        
+        // Redirect based on role
+        const userRole = data.user.role;
+        if (userRole === 'Restaurant' || userRole === 'restaurant') {
+          setTimeout(() => navigate("/restaurant-dashboard"), 1000);
+        } else {
+          setTimeout(() => navigate("/profile"), 1000);
+        }
       } else {
         setError(data.message || "Google login failed");
       }

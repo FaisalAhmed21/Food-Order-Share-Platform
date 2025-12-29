@@ -1,0 +1,5 @@
+.volunteer-container { min-height:100vh; padding:2rem; background:#f7fafc }
+.header-row { display:flex; align-items:center; gap:1rem; margin-bottom:1rem }
+.back-btn { background:transparent; border:none; color:#667eea; cursor:pointer; font-weight:700 }
+.assignment-card { display:flex; justify-content:space-between; background:white; padding:1rem; border-radius:8px; box-shadow:0 6px 18px rgba(102,121,255,0.04); margin-bottom:1rem }
+.assignment-actions button { padding:0.5rem 0.8rem; border-radius:6px; border:1px solid #ddd; background:white; cursor:pointer }
