@@ -1,0 +1,100 @@
+.donate-food-container {
+  min-height: 100vh;
+  padding: 2rem;
+  background: linear-gradient(180deg, #f7fbff, #fff);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.donate-food-wrapper {
+  width: 940px;
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 6px 24px rgba(102,121,255,0.12);
+}
+
+.back-btn {
+  background: transparent;
+  border: none;
+  color: #667eea;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.donation-header h1 {
+  margin: 0.5rem 0 0.25rem 0;
+  color: #333;
+}
+
+.donation-header p {
+  margin: 0 0 1rem 0;
+  color: #666;
+}
+
+.stepper {
+  display: flex;
+  gap: 0.5rem;
+  margin: 1rem 0 1.5rem 0;
+}
+
+.step {
+  flex: 1;
+  padding: 0.6rem 0.6rem;
+  border-radius: 8px;
+  background: #f1f5ff;
+  color: #333;
+  text-align: center;
+  font-weight: 600;
+}
+
+.step.current { background: #667eea; color: white }
+.step.active { background: #eaf0ff }
+
+.form-step { margin-bottom: 1rem }
+.form-group { margin-bottom: 1rem }
+.form-row { display: flex; gap: 1rem }
+.form-row .form-group { flex: 1 }
+
+.form-group label { display:block; font-weight:700; margin-bottom: 0.5rem }
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group input[type="datetime-local"],
+.form-group select,
+.form-group textarea { width: 100%; padding: 0.6rem; border-radius: 6px; border: 1px solid #e6edf8 }
+
+.error { border-color: #f44336 }
+.error-text { color: #f44336; font-size: 0.85rem }
+
+.photo-upload-section { display:flex; flex-direction: column; gap: 0.8rem }
+.upload-btn { display:inline-block; padding:0.6rem 1rem; background:#667eea; color:white; border-radius:8px; cursor:pointer }
+.photo-preview-grid { display:flex; gap:0.6rem; flex-wrap:wrap }
+.photo-preview { position:relative; width:120px; height:90px; border-radius:8px; overflow:hidden; border:1px solid #eee }
+.photo-preview img { width:100%; height:100%; object-fit:cover }
+.remove-photo { position:absolute; top:6px; right:6px; background:rgba(0,0,0,0.5); color:white; border:none; border-radius:50%; width:26px; height:26px; cursor:pointer }
+.photo-count { color:#666 }
+
+.map-picker-btn { padding:0.6rem 1rem; border-radius:8px; border:1px solid #667eea; background:transparent; cursor:pointer }
+.coordinates-display { margin-top:0.5rem; color:#2d7aee }
+
+.info-box { background:#f7f9ff; padding:0.8rem; border-radius:8px; border-left:4px solid #667eea }
+.info-box.warning { background:#fff6f6; border-left-color:#f44336 }
+
+.safety-checklist { display:flex; flex-direction:column; gap:0.6rem }
+.checkbox-label { display:flex; gap:0.6rem; align-items:center }
+.checkbox-label input { width:18px; height:18px }
+
+.form-actions { display:flex; gap:0.8rem; justify-content:flex-end; margin-top:1rem }
+.btn-secondary { padding:0.6rem 1rem; border-radius:8px; border:1px solid #ccc; background:white; cursor:pointer }
+.btn-primary { padding:0.6rem 1rem; border-radius:8px; border:none; background:#667eea; color:white; cursor:pointer }
+.btn-submit { padding:0.8rem 1.2rem; background:#00b894; color:white; border:none; border-radius:8px; font-weight:700; cursor:pointer }
+.btn-warning { padding:0.6rem 1rem; background:#ffb74d; border:none; border-radius:8px; cursor:pointer }
+
+.warning-modal-overlay { position:fixed; inset:0; background:rgba(0,0,0,0.5); display:flex; align-items:center; justify-content:center }
+.warning-modal { background:white; padding:1.2rem; border-radius:8px; width:420px }
+
+@media (max-width: 980px) {
+  .donate-food-wrapper { width: 100%; padding: 1rem }
+  .form-row { flex-direction: column }
+}

@@ -1,0 +1,482 @@
+.restaurant-ngo-map-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #f8f9fa;
+  min-height: 100vh;
+}
+
+.restaurant-ngo-map-header {
+  text-align: center;
+  margin-bottom: 30px;
+  background: linear-gradient(135deg, #51CF66 0%, #40bf5f 100%);
+  padding: 40px 20px;
+  border-radius: 16px;
+  color: white;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.restaurant-ngo-map-header h1 {
+  margin: 0 0 10px 0;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.restaurant-ngo-map-header p {
+  margin: 0;
+  font-size: 1.1rem;
+  opacity: 0.95;
+}
+
+.alert {
+  padding: 15px 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.95rem;
+}
+
+.alert-warning {
+  background: #fff3cd;
+  border: 1px solid #ffc107;
+  color: #856404;
+}
+
+.map-controls {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.distance-selector {
+  flex: 1;
+  min-width: 250px;
+}
+
+.distance-selector label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #333;
+  font-size: 1rem;
+}
+
+.distance-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.distance-btn {
+  padding: 10px 20px;
+  border: 2px solid #e0e0e0;
+  background: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  color: #666;
+  font-size: 0.95rem;
+}
+
+.distance-btn:hover {
+  border-color: #51CF66;
+  color: #51CF66;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(81, 207, 102, 0.2);
+}
+
+.distance-btn.active {
+  background: linear-gradient(135deg, #51CF66 0%, #40bf5f 100%);
+  color: white;
+  border-color: transparent;
+  box-shadow: 0 4px 15px rgba(81, 207, 102, 0.4);
+}
+
+.stats-box {
+  display: flex;
+  gap: 30px;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px 20px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 10px;
+  min-width: 120px;
+}
+
+.stat-number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #51CF66;
+  line-height: 1;
+  margin-bottom: 5px;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: #666;
+  font-weight: 500;
+}
+
+.refresh-btn {
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #51CF66 0%, #40bf5f 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  white-space: nowrap;
+}
+
+.refresh-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(81, 207, 102, 0.4);
+}
+
+.refresh-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.map-wrapper {
+  background: white;
+  padding: 10px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+  overflow: hidden;
+}
+
+.map-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 600px;
+  background: white;
+  border-radius: 12px;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #51CF66;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* NGO List Section */
+.ngo-list {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.ngo-list h3 {
+  margin: 0 0 20px 0;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.no-results {
+  text-align: center;
+  color: #999;
+  padding: 40px 20px;
+  font-size: 1.1rem;
+}
+
+.ngo-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.ngo-card {
+  background: #f8f9fa;
+  border: 2px solid #e9ecef;
+  border-radius: 12px;
+  padding: 20px;
+  transition: all 0.3s ease;
+}
+
+.ngo-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  border-color: #51CF66;
+}
+
+.ngo-card.not-accepting {
+  opacity: 0.7;
+  border-color: #dee2e6;
+}
+
+.ngo-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #e9ecef;
+}
+
+.ngo-card-header h4 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #333;
+  flex: 1;
+}
+
+.verified-badge-small {
+  background: #28a745;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 50%;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.ngo-card-body p {
+  margin: 8px 0;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.type-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  background: #e8f5e9;
+  color: #2e7d32;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.85rem !important;
+  margin-bottom: 10px;
+}
+
+.description {
+  font-style: italic;
+  color: #666 !important;
+  font-size: 0.88rem !important;
+  line-height: 1.4;
+}
+
+.distance-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  background: #e3f2fd;
+  color: #1976d2;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.85rem !important;
+  margin-bottom: 10px;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 12px;
+  font-size: 0.85rem !important;
+  font-weight: 600;
+  margin: 8px 0;
+}
+
+.status-badge.accepting {
+  background: #d4edda;
+  color: #155724;
+}
+
+.status-badge.not-accepting {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+.call-btn {
+  display: inline-block;
+  padding: 8px 16px;
+  background: #51CF66;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-top: 10px;
+  transition: all 0.3s ease;
+}
+
+.call-btn:hover {
+  background: #40bf5f;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(81, 207, 102, 0.3);
+}
+
+.website-btn {
+  display: inline-block;
+  padding: 8px 16px;
+  background: #667eea;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin: 10px 10px 0 0;
+  transition: all 0.3s ease;
+}
+
+.website-btn:hover {
+  background: #5568d3;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+/* Popup styles */
+.popup-content {
+  min-width: 250px;
+  max-width: 350px;
+}
+
+.popup-content h3 {
+  margin: 0 0 12px 0;
+  font-size: 1.2rem;
+  color: #333;
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 8px;
+}
+
+.popup-content p {
+  margin: 8px 0;
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+.popup-content strong {
+  color: #333;
+  font-weight: 600;
+}
+
+.popup-content a {
+  color: #51CF66;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.popup-content a:hover {
+  text-decoration: underline;
+}
+
+.popup-link {
+  display: inline-block;
+  color: #51CF66;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 6px 12px;
+  background: #f0fff4;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  margin-top: 4px;
+}
+
+.popup-link:hover {
+  background: #51CF66;
+  color: white;
+  transform: translateY(-1px);
+}
+
+.verified-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  background: #28a745;
+  color: white;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.status-accepting {
+  color: #155724;
+  font-weight: 600;
+}
+
+.status-not-accepting {
+  color: #721c24;
+  font-weight: 600;
+}
+
+/* Leaflet overrides */
+.leaflet-container {
+  font-family: inherit;
+}
+
+.leaflet-popup-content-wrapper {
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.leaflet-popup-tip {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .restaurant-ngo-map-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .restaurant-ngo-map-header p {
+    font-size: 1rem;
+  }
+
+  .map-controls {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .distance-selector {
+    width: 100%;
+  }
+
+  .stats-box {
+    width: 100%;
+    justify-content: space-around;
+  }
+
+  .refresh-btn {
+    width: 100%;
+  }
+
+  .map-wrapper {
+    padding: 5px;
+  }
+
+  .ngo-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .popup-content {
+    min-width: 200px;
+  }
+}

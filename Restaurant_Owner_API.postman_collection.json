@@ -1,0 +1,491 @@
+{
+  "info": {
+    "name": "Restaurant Owner API",
+    "description": "Complete API collection for restaurant owner dashboard",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:5000",
+      "type": "string"
+    },
+    {
+      "key": "token",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "restaurantId",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "menuItemId",
+      "value": "",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "1. Authentication",
+      "item": [
+        {
+          "name": "Register as Owner",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"owner@test.com\",\n  \"password\": \"password123\",\n  \"name\": \"Test Owner\",\n  \"role\": \"owner\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/register",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "auth", "register"]
+            }
+          }
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"owner@test.com\",\n  \"password\": \"password123\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/login",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "auth", "login"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "2. Restaurant Management",
+      "item": [
+        {
+          "name": "Get My Restaurants",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/restaurants/owner/my-restaurants",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "restaurants", "owner", "my-restaurants"]
+            }
+          }
+        },
+        {
+          "name": "Create Restaurant (with Image)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "name",
+                  "value": "My Test Restaurant",
+                  "type": "text"
+                },
+                {
+                  "key": "description",
+                  "value": "Best food in town",
+                  "type": "text"
+                },
+                {
+                  "key": "cuisine",
+                  "value": "[\"Bangladeshi\", \"Chinese\"]",
+                  "type": "text"
+                },
+                {
+                  "key": "deliveryTime",
+                  "value": "30",
+                  "type": "text"
+                },
+                {
+                  "key": "deliveryFee",
+                  "value": "49",
+                  "type": "text"
+                },
+                {
+                  "key": "minimumOrder",
+                  "value": "200",
+                  "type": "text"
+                },
+                {
+                  "key": "priceRange",
+                  "value": "৳৳",
+                  "type": "text"
+                },
+                {
+                  "key": "address[street]",
+                  "value": "House 123, Road 4",
+                  "type": "text"
+                },
+                {
+                  "key": "address[area]",
+                  "value": "Dhanmondi",
+                  "type": "text"
+                },
+                {
+                  "key": "address[city]",
+                  "value": "Dhaka",
+                  "type": "text"
+                },
+                {
+                  "key": "contact[phone]",
+                  "value": "+8801712345678",
+                  "type": "text"
+                },
+                {
+                  "key": "contact[email]",
+                  "value": "info@restaurant.com",
+                  "type": "text"
+                },
+                {
+                  "key": "image",
+                  "type": "file",
+                  "src": ""
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/restaurants/owner/restaurants",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "restaurants", "owner", "restaurants"]
+            }
+          }
+        },
+        {
+          "name": "Update Restaurant",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "deliveryTime",
+                  "value": "25",
+                  "type": "text"
+                },
+                {
+                  "key": "deliveryFee",
+                  "value": "39",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/restaurants/owner/restaurants/{{restaurantId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "restaurants", "owner", "restaurants", "{{restaurantId}}"]
+            }
+          }
+        },
+        {
+          "name": "Delete Restaurant",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/restaurants/owner/restaurants/{{restaurantId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "restaurants", "owner", "restaurants", "{{restaurantId}}"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "3. Menu Management",
+      "item": [
+        {
+          "name": "Get Restaurant Menu",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/restaurants/owner/restaurants/{{restaurantId}}/menu",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "restaurants", "owner", "restaurants", "{{restaurantId}}", "menu"]
+            }
+          }
+        },
+        {
+          "name": "Create Menu Item (with Image)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "name",
+                  "value": "Chicken Tikka Masala",
+                  "type": "text"
+                },
+                {
+                  "key": "description",
+                  "value": "Tender chicken in creamy tomato sauce",
+                  "type": "text"
+                },
+                {
+                  "key": "price",
+                  "value": "450",
+                  "type": "text"
+                },
+                {
+                  "key": "category",
+                  "value": "Mains",
+                  "type": "text"
+                },
+                {
+                  "key": "available",
+                  "value": "true",
+                  "type": "text"
+                },
+                {
+                  "key": "preparationTime",
+                  "value": "25",
+                  "type": "text"
+                },
+                {
+                  "key": "spiceLevel",
+                  "value": "3",
+                  "type": "text"
+                },
+                {
+                  "key": "dietary",
+                  "value": "[\"Halal\"]",
+                  "type": "text"
+                },
+                {
+                  "key": "sizes",
+                  "value": "[{\"name\": \"Regular\", \"price\": 450}, {\"name\": \"Large\", \"price\": 650}]",
+                  "type": "text"
+                },
+                {
+                  "key": "addons",
+                  "value": "[{\"name\": \"Extra Chicken\", \"price\": 120}, {\"name\": \"Extra Rice\", \"price\": 80}]",
+                  "type": "text"
+                },
+                {
+                  "key": "image",
+                  "type": "file",
+                  "src": ""
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/restaurants/owner/restaurants/{{restaurantId}}/menu",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "restaurants", "owner", "restaurants", "{{restaurantId}}", "menu"]
+            }
+          }
+        },
+        {
+          "name": "Update Menu Item",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "price",
+                  "value": "480",
+                  "type": "text"
+                },
+                {
+                  "key": "available",
+                  "value": "true",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/restaurants/owner/menu-items/{{menuItemId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "restaurants", "owner", "menu-items", "{{menuItemId}}"]
+            }
+          }
+        },
+        {
+          "name": "Delete Menu Item",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/restaurants/owner/menu-items/{{menuItemId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "restaurants", "owner", "menu-items", "{{menuItemId}}"]
+            }
+          }
+        },
+        {
+          "name": "Bulk Toggle Availability",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"itemIds\": [\"menuItemId1\", \"menuItemId2\"],\n  \"available\": false\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/restaurants/owner/restaurants/{{restaurantId}}/menu/availability",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "restaurants", "owner", "restaurants", "{{restaurantId}}", "menu", "availability"]
+            }
+          }
+        },
+        {
+          "name": "Get Dashboard Statistics",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/restaurants/owner/restaurants/{{restaurantId}}/statistics",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "restaurants", "owner", "restaurants", "{{restaurantId}}", "statistics"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "4. Public Restaurant API (Database)",
+      "item": [
+        {
+          "name": "Get All Restaurants",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/restaurants/api/all?page=1&limit=20",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "restaurants", "api", "all"],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "20"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Restaurant by ID",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/restaurants/api/{{restaurantId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "restaurants", "api", "{{restaurantId}}"]
+            }
+          }
+        },
+        {
+          "name": "Get Restaurant Menu",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/restaurants/api/{{restaurantId}}/menu",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "restaurants", "api", "{{restaurantId}}", "menu"]
+            }
+          }
+        },
+        {
+          "name": "Search Restaurants",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/restaurants/api/search?q=burger",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "restaurants", "api", "search"],
+              "query": [
+                {
+                  "key": "q",
+                  "value": "burger"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
