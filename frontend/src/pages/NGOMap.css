@@ -1,0 +1,419 @@
+.ngo-map-container {
+  min-height: 100vh;
+  padding: 2rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.header-section {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 15px;
+  margin-bottom: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.header-section h1 {
+  margin: 0;
+  color: #333;
+  font-size: 2rem;
+}
+
+.back-btn {
+  padding: 0.8rem 1.5rem;
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+  background-color: #5a6268;
+  transform: translateY(-2px);
+}
+
+.view-toggle {
+  display: flex;
+  gap: 0.5rem;
+  background-color: #f0f0f0;
+  padding: 0.3rem;
+  border-radius: 10px;
+}
+
+.toggle-btn {
+  padding: 0.6rem 1.2rem;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  color: #666;
+}
+
+.toggle-btn.active {
+  background: white;
+  color: #667eea;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.loading-state {
+  background: white;
+  padding: 4rem;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.spinner {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #667eea;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.map-section {
+  position: relative;
+  background: white;
+  padding: 1rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.map-container {
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Custom Leaflet Markers */
+.user-marker {
+  background: transparent;
+  border: none;
+}
+
+.user-marker-inner {
+  font-size: 2rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.ngo-marker {
+  background: transparent;
+  border: none;
+}
+
+.restaurant-marker {
+  background: transparent;
+  border: none;
+}
+
+.ngo-marker-inner,
+.restaurant-marker-inner {
+  font-size: 2rem;
+  background: white;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.ngo-marker-inner:hover,
+.restaurant-marker-inner:hover {
+  transform: scale(1.2);
+}
+
+.ngo-marker-inner.verified,
+.restaurant-marker-inner.verified {
+  border: 3px solid #28a745;
+}
+
+.ngo-popup h3,
+.restaurant-popup h3 {
+  margin: 0 0 0.5rem 0;
+  color: #333;
+}
+
+.ngo-popup p {
+  margin: 0.3rem 0;
+  color: #666;
+}
+
+/* NGO Details Panel */
+.ngo-details-panel {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  width: 320px;
+  max-height: 500px;
+  overflow-y: auto;
+  z-index: 1000;
+}
+
+.close-panel {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #999;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.close-panel:hover {
+  color: #333;
+}
+
+.ngo-details-panel h2 {
+  margin: 0 0 1rem 0;
+  color: #333;
+  padding-right: 2rem;
+}
+
+.detail-item {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+  padding: 0.8rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+}
+
+.detail-item .icon {
+  font-size: 1.5rem;
+  min-width: 30px;
+}
+
+.detail-item span:last-child {
+  color: #555;
+  font-size: 0.95rem;
+}
+
+.panel-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-top: 1.5rem;
+}
+
+.request-btn,
+.navigate-btn {
+  padding: 0.8rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.request-btn {
+  background-color: #28a745;
+  color: white;
+}
+
+.request-btn:hover {
+  background-color: #218838;
+  transform: translateY(-2px);
+}
+
+.navigate-btn {
+  background-color: #007bff;
+  color: white;
+}
+
+.navigate-btn:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+/* List View */
+.list-section {
+  background: transparent;
+}
+
+.empty-state {
+  background: white;
+  padding: 3rem;
+  border-radius: 15px;
+  text-align: center;
+  color: #666;
+  font-size: 1.2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.ngo-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.ngo-card {
+  background: white;
+  border-radius: 15px;
+  padding: 1.5rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.ngo-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+.ngo-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.ngo-header h3 {
+  margin: 0;
+  color: #333;
+  font-size: 1.5rem;
+}
+
+.verification-badge {
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.verification-badge.verified {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.verification-badge.unverified {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.ngo-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.ngo-info p {
+  margin: 0.5rem 0;
+  color: #555;
+  line-height: 1.6;
+}
+
+.ngo-info strong {
+  color: #333;
+}
+
+.ngo-actions {
+  display: flex;
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+.action-btn {
+  flex: 1;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.action-btn.primary {
+  background-color: #28a745;
+  color: white;
+}
+
+.action-btn.primary:hover {
+  background-color: #218838;
+  transform: translateY(-2px);
+}
+
+.action-btn.secondary {
+  background-color: #007bff;
+  color: white;
+}
+
+.action-btn.secondary:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .ngo-map-container {
+    padding: 1rem;
+  }
+
+  .header-section {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .header-section h1 {
+    font-size: 1.5rem;
+  }
+
+  .view-toggle {
+    width: 100%;
+  }
+
+  .toggle-btn {
+    flex: 1;
+  }
+
+  .ngo-details-panel {
+    position: fixed;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-height: 70vh;
+    border-radius: 15px 15px 0 0;
+  }
+
+  .map-container {
+    height: 400px !important;
+  }
+
+  .ngo-actions {
+    flex-direction: column;
+  }
+}

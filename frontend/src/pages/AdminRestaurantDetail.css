@@ -1,0 +1,246 @@
+.admin-restaurant-detail-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+}
+
+.admin-detail-loading,
+.admin-detail-error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  color: white;
+  font-size: 1.5rem;
+}
+
+.admin-detail-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 30px;
+}
+
+/* Restaurant Info Section */
+.restaurant-info-section {
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  margin-bottom: 30px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.restaurant-header-admin {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.restaurant-header-admin h1 {
+  margin: 0;
+  color: #333;
+  font-size: 2rem;
+}
+
+.admin-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.verify-btn {
+  background: #4CAF50;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.verify-btn:hover {
+  background: #45a049;
+  transform: translateY(-2px);
+}
+
+.delete-restaurant-btn {
+  background: #f44336;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.delete-restaurant-btn:hover {
+  background: #d32f2f;
+  transform: translateY(-2px);
+}
+
+.restaurant-details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.detail-card {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.detail-card h3 {
+  margin: 0 0 15px 0;
+  color: #333;
+}
+
+.detail-card p {
+  margin: 8px 0;
+  color: #666;
+}
+
+.pdf-link {
+  display: inline-block;
+  margin-top: 10px;
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.pdf-link:hover {
+  text-decoration: underline;
+}
+
+/* Menu Section */
+.menu-section-admin {
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.menu-section-admin h2 {
+  margin: 0 0 25px 0;
+  color: #333;
+}
+
+.no-menu-items {
+  text-align: center;
+  padding: 40px;
+  color: #999;
+  font-size: 1.1rem;
+}
+
+.menu-grid-admin {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.menu-item-card-admin {
+  background: #f8f9fa;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+
+.menu-item-card-admin:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.menu-item-image-admin {
+  height: 180px;
+  background: #e0e0e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.menu-item-image-admin img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.no-item-image {
+  font-size: 3rem;
+  color: #ccc;
+}
+
+.menu-item-info-admin {
+  padding: 15px;
+}
+
+.menu-item-info-admin h3 {
+  margin: 0 0 8px 0;
+  color: #333;
+  font-size: 1.1rem;
+}
+
+.item-description {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+.item-price {
+  color: #4CAF50;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.item-category {
+  color: #888;
+  font-size: 0.85rem;
+  margin-bottom: 12px;
+}
+
+.delete-item-btn {
+  width: 100%;
+  background: #ff6b6b;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.delete-item-btn:hover {
+  background: #ff5252;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .restaurant-header-admin {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .admin-actions {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .verify-btn,
+  .delete-restaurant-btn {
+    width: 100%;
+  }
+
+  .restaurant-details-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .menu-grid-admin {
+    grid-template-columns: 1fr;
+  }
+}

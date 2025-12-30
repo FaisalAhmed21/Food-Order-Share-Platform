@@ -1,0 +1,12 @@
+node_modules/
+
+# Ignore documentation and sensitive files for this branch
+*.md
+*.MD
+*.Md
+*.mD
+COMMANDS.*
+.env
+*.env
+*.env.*
+cred.txt

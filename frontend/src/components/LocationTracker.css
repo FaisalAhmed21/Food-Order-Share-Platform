@@ -1,0 +1,135 @@
+.location-popup {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 10000;
+  animation: slideInRight 0.3s ease-out;
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(400px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.location-popup-content {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  max-width: 350px;
+  position: relative;
+  border-left: 4px solid #667eea;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  color: #999;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s;
+}
+
+.close-btn:hover {
+  background: #f0f0f0;
+  color: #333;
+}
+
+.location-icon {
+  font-size: 48px;
+  text-align: center;
+  margin-bottom: 10px;
+  animation: bounce 0.5s ease-in-out;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.location-popup-content h3 {
+  margin: 0 0 10px 0;
+  color: #333;
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.location-text {
+  color: #666;
+  font-size: 0.95rem;
+  text-align: center;
+  margin-bottom: 15px;
+  line-height: 1.5;
+}
+
+.location-details {
+  background: #f7f9fc;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.location-details p {
+  margin: 5px 0;
+  color: #333;
+  font-size: 0.9rem;
+}
+
+.location-details strong {
+  color: #667eea;
+}
+
+.location-address {
+  font-size: 1rem;
+  color: #333;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 8px;
+}
+
+.ok-btn {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.ok-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .location-popup {
+    top: 10px;
+    right: 10px;
+    left: 10px;
+  }
+
+  .location-popup-content {
+    max-width: 100%;
+  }
+}
+

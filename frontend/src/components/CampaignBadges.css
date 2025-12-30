@@ -1,0 +1,175 @@
+.campaign-badges-section {
+  margin-top: 30px;
+  padding: 25px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.campaign-badges-section h3 {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.badges-subtitle {
+  color: #666;
+  font-size: 0.95rem;
+  margin-bottom: 25px;
+}
+
+.badges-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.badge-card {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border-radius: 10px;
+  border: 3px solid;
+  transition: all 0.3s ease;
+  background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.95) 100%);
+}
+
+.badge-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.badge-gold {
+  border-color: #FFD700;
+  background: linear-gradient(135deg, #FFF9E6 0%, #FFFEF7 100%);
+}
+
+.badge-gold:hover {
+  box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3);
+}
+
+.badge-silver {
+  border-color: #C0C0C0;
+  background: linear-gradient(135deg, #F5F5F5 0%, #FAFAFA 100%);
+}
+
+.badge-silver:hover {
+  box-shadow: 0 8px 25px rgba(192, 192, 192, 0.3);
+}
+
+.badge-bronze {
+  border-color: #CD7F32;
+  background: linear-gradient(135deg, #FFF4E6 0%, #FFF8F0 100%);
+}
+
+.badge-bronze:hover {
+  box-shadow: 0 8px 25px rgba(205, 127, 50, 0.3);
+}
+
+.badge-default {
+  border-color: #9E9E9E;
+  background: linear-gradient(135deg, #F5F5F5 0%, #FAFAFA 100%);
+}
+
+.badge-icon {
+  font-size: 3.5rem;
+  margin-right: 20px;
+  flex-shrink: 0;
+  animation: badgeFloat 3s ease-in-out infinite;
+}
+
+@keyframes badgeFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.badge-content {
+  flex: 1;
+}
+
+.badge-type {
+  font-size: 1.3rem;
+  margin-bottom: 5px;
+  color: #333;
+  font-weight: 700;
+}
+
+.badge-gold .badge-type {
+  color: #B8860B;
+}
+
+.badge-silver .badge-type {
+  color: #696969;
+}
+
+.badge-bronze .badge-type {
+  color: #8B4513;
+}
+
+.badge-campaign-name {
+  font-size: 0.95rem;
+  color: #666;
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+
+.badge-details {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.badge-donation,
+.badge-date {
+  font-size: 0.85rem;
+  color: #555;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.badge-donation {
+  font-weight: 600;
+  color: #4CAF50;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .badges-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .badge-card {
+    padding: 15px;
+  }
+
+  .badge-icon {
+    font-size: 2.5rem;
+    margin-right: 15px;
+  }
+
+  .badge-type {
+    font-size: 1.1rem;
+  }
+
+  .campaign-badges-section h3 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Special effects for multiple badges */
+.badges-grid:has(.badge-card:nth-child(3)) .badge-card:first-child {
+  grid-column: span 1;
+}
+
+/* Empty state (when component returns null, this won't show) */
+.no-badges-message {
+  text-align: center;
+  padding: 40px 20px;
+  color: #999;
+  font-style: italic;
+}

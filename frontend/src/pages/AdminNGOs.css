@@ -1,0 +1,206 @@
+.admin-ngos-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.admin-ngos-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 1.2rem;
+  color: white;
+}
+
+.admin-ngos-content {
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.admin-ngos-header {
+  text-align: center;
+  color: white;
+  margin-bottom: 2rem;
+}
+
+.admin-ngos-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.admin-ngos-header p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+.ngo-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.stat-box {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.stat-box h3 {
+  font-size: 2.5rem;
+  color: #667eea;
+  margin-bottom: 0.5rem;
+}
+
+.stat-box p {
+  color: #666;
+  font-size: 1rem;
+}
+
+.ngos-table-container {
+  background: white;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow-x: auto;
+}
+
+.ngos-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.ngos-table thead {
+  background: #f8f9fa;
+}
+
+.ngos-table th {
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  color: #333;
+  border-bottom: 2px solid #dee2e6;
+}
+
+.ngos-table td {
+  padding: 1rem;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.ngo-name-cell {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.ngo-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.ngo-avatar-placeholder {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #667eea;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.verified-status {
+  color: #28a745;
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  background: #d4edda;
+  border-radius: 20px;
+  display: inline-block;
+}
+
+.unverified-status {
+  color: #ffc107;
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  background: #fff3cd;
+  border-radius: 20px;
+  display: inline-block;
+}
+
+.verify-btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s;
+  margin-right: 0.5rem;
+}
+
+.verify-btn.add {
+  background: #28a745;
+  color: white;
+}
+
+.verify-btn.add:hover {
+  background: #218838;
+}
+
+.verify-btn.remove {
+  background: #dc3545;
+  color: white;
+}
+
+.verify-btn.remove:hover {
+  background: #c82333;
+}
+
+.delete-ngo-btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s;
+  background: #dc3545;
+  color: white;
+}
+
+.delete-ngo-btn:hover {
+  background: #bd2130;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.no-ngos {
+  text-align: center;
+  padding: 3rem;
+  color: #666;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+  .admin-ngos-content {
+    padding: 1rem;
+  }
+
+  .ngos-table {
+    font-size: 0.9rem;
+  }
+
+  .ngos-table th,
+  .ngos-table td {
+    padding: 0.5rem;
+  }
+}

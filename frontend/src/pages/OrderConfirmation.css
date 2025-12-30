@@ -1,0 +1,273 @@
+.order-confirmation-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #FFA500 0%, #FFA500 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  position: relative;
+}
+
+.success-notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #48bb78;
+  color: white;
+  padding: 15px 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  z-index: 1000;
+  animation: slideInRight 0.5s ease-out;
+  font-weight: 600;
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(400px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.confirmation-card {
+  background: white;
+  border-radius: 15px;
+  padding: 3rem;
+  max-width: 600px;
+  width: 100%;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+  text-align: center;
+}
+
+/* Success Animation */
+.success-animation {
+  margin-bottom: 2rem;
+}
+
+.checkmark-circle {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto;
+  background: #4CAF50;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: scaleIn 0.5s ease;
+}
+
+@keyframes scaleIn {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.checkmark {
+  font-size: 4rem;
+  color: white;
+  animation: checkmarkAppear 0.5s ease 0.3s both;
+}
+
+@keyframes checkmarkAppear {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.confirmation-card h1 {
+  margin: 0 0 1rem 0;
+  color: #4CAF50;
+  font-size: 2rem;
+}
+
+.confirmation-message {
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.redirect-notice {
+  background: #e3f2fd;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  border-left: 4px solid #667eea;
+}
+
+.redirect-notice p {
+  margin: 0;
+  color: #2d3748;
+  font-size: 1rem;
+}
+
+.redirect-notice strong {
+  color: #667eea;
+  font-size: 1.2rem;
+}
+
+/* Order Info */
+.order-info {
+  background: #f9f9f9;
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin: 2rem 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.info-label {
+  color: #999;
+  font-size: 0.9rem;
+}
+
+.info-value {
+  color: #333;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+/* QR Section */
+.qr-section {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: #f9f9f9;
+  border-radius: 10px;
+}
+
+.qr-section h3 {
+  margin: 0 0 1rem 0;
+  color: #333;
+}
+
+.qr-code {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+  background: white;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.qr-code img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.qr-description {
+  margin: 1rem 0 0 0;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* Action Buttons */
+.action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.track-order-btn,
+.view-receipt-btn,
+.home-btn {
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+}
+
+.track-order-btn {
+  background: #FFA500;
+  color: white;
+}
+
+.track-order-btn:hover {
+  background: #ff8c00;
+  transform: translateY(-2px);
+}
+
+.view-receipt-btn {
+  background: #f5f5f5;
+  color: #333;
+  border: 2px solid #e0e0e0;
+}
+
+.view-receipt-btn:hover {
+  background: #e0e0e0;
+}
+
+.home-btn {
+  background: white;
+  color: #FFA500;
+  border: 2px solid #FFA500;
+}
+
+.home-btn:hover {
+  background: #fff5e6;
+}
+
+/* Email Notification */
+.email-notification {
+  padding: 1rem;
+  background: #e3f2fd;
+  border-radius: 8px;
+  margin-top: 2rem;
+}
+
+.email-notification p {
+  margin: 0;
+  color: #1976d2;
+  font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .confirmation-card {
+    padding: 2rem;
+  }
+
+  .confirmation-card h1 {
+    font-size: 1.5rem;
+  }
+
+  .order-info {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .checkmark-circle {
+    width: 100px;
+    height: 100px;
+  }
+
+  .checkmark {
+    font-size: 3rem;
+  }
+}
